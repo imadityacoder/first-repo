@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from app.models import Form
 
 # Create your views here.
@@ -9,6 +9,6 @@ def login(request):
         password = request.POST.get("password")
         form = Form(username=username,email=email,password=password)
         form.save()
-        
+        return render(request,'done.html')
 
     return render(request,"index.html")
